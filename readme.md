@@ -1,10 +1,10 @@
 An unimaginitively named and loosely organized collection of JS code snippets I may or may not have been using to capture data from Facebook, which may or may not comply with their TOS.
 
-#My Steps for scraping an FB Group Member List with vanilla Javascript in Chrome:
+# My Steps for scraping an FB Group Member List with vanilla Javascript in Chrome:
 
-1. Navigate to Group Members page (/groups/<groupname>/members/).  
+1. Navigate to Group Members page (e.g., `/groups/<groupname>/members/`).  
 2. Open Chrome Dev Tools (CTRL+SHIFT+I, or use the menus).
-3. Under the Console tab, paste the following code (see also ?.js) at the cursor and hit enter:
+3. Under the Console tab, paste the following code (see also [group-members-autoscroller.js](/group-members-autoscroller.js), which includes a Bookmarklet version) at the cursor and hit enter:
 
 ```javascript
 var numMembers = parseInt(document.querySelector("#groupsMemberBrowser > div > div > div > span").innerText); 
@@ -19,7 +19,7 @@ var millisecondsBetweenScrolls = 2500;
 })(numMembers/10);
 ```
 
-4. When the page stops changing (no more scrolls/loads), which can take a while if the group is large, go back to the Dev Tools console, and at the cursor, paste the following code block:
+4. When the page stops changing (no more scrolls/loads), which can take a while if the group is large, go back to the Dev Tools console, and at the cursor, paste the following code (see also [group-members-capture.js](/group-members-capture.js)) block:
 
 ```javascript
 var people = [];
